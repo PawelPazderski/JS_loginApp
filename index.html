@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Paweł Pazderski">
+    <title>JS-login-app</title>
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0aaf552d36.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="scripts/transactions.js" defer></script>
+    <script src="scripts/charts.js" defer></script>
+    <script src="scripts/logFunctions.js" defer></script>
+    <script src="scripts/register.js" defer></script>
+    <script src="scripts/storageFunctions.js" defer></script>
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="nav-left-items">
+                <button class="nav-login-button">Logowanie</button>
+                <button class="nav-register-button">Rejestracja</button>
+            </div>
+            <div class="nav-logo">
+                <img src="./assets/body_illustration_dollar_blue.svg" class="nav-logo-icon"/>
+            </div>
+            <div class="nav-right-items d-none">
+                <span class="user-name"></span>
+                <button class="nav-logout-button">Wyloguj</button>
+            </div>
+        </div>
+    </nav>
+    <main id="main-container" data-logged-in="false">
+        <!--Registration wiew start-->
+        <section class="register-container d-none">
+            <h2>Zarejestruj się</h2>
+            <form class="register-form">
+                <div class="input-wrapper">
+                    <label for="register-name">Nazwa użytkownika</label>
+                    <input type="text" id="register-name"/>
+                </div>
+                <span class="form-error d-none">Długość: 6-16 znaków / 5 liter i 1 cyfra / dozwolone litery (polskie znaki), cyfry i znaki: - _ [ ] \ /</span>
+                <div class="input-wrapper">
+                    <label for="register-password">Hasło</label>
+                    <input type="password" id="register-password" />
+                </div>
+                <span class="form-error d-none">Hasło musi mieć conajmniej 6 znaków!</span>
+                <div class="input-wrapper">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" />
+                </div>
+                <span class="form-error d-none">Błędny adres email!</span>
+                <div class="input-wrapper">
+                    <label for="register-confirm-email">Potwierdź email</label>
+                    <input type="email" id="register-confirm-email"/>
+                </div>
+                <span class="form-error d-none">Adresy muszą być identyczne!</span>
+                <button class="register-form-button" type="submit" formnovalidate>Zarejestruj</button>
+            </form>
+        </section>
+        <!--Registration wiew end-->
+        <!--Login wiew start-->
+        <section class="login-container d-none">
+            <h2>Zaloguj się</h2>
+            <form class="login-form">
+                <div class="input-wrapper">
+                    <label for="login-name">Nazwa lub Email</label>
+                    <input type="text" id="login-name"/>
+                </div>
+                <div class="input-wrapper">
+                    <label for="login-password">Hasło</label>
+                    <input type="password" id="login-password"/>
+                    <div class="show-password d-none"><i class="fa-solid fa-eye"></i></div>
+                </div>
+                <button type="submit">Zaloguj</button>
+            </form>
+        </section>
+        <!--Login wiew end-->
+        <!--LoggedIn wiew start--> 
+        <section class="transactions-section d-none">
+            <div id="charts">
+                <div class="bar-chart-container">
+                    <canvas id="barChart"></canvas>
+                </div>
+                <div class="pie-chart-container">
+                    <canvas id="pieChart"></canvas>
+                </div>
+            </div>
+            <div id="transactions">
+                <div class="transactions-container-desktop">
+                    <table id="transactions-table-desktop">
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Typ <span id="desktop-table-type-head" style="cursor: pointer"><i class="fa-solid fa-list fa-lg"></i></i></span></th>
+                                <th>Opis <span id="desktop-table-search-head" style="cursor: pointer"><i class="fa-solid fa-magnifying-glass fa-lg"></i></i></i></span></th>
+                                <th>Kwota</th>
+                                <th>Saldo</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-rows"></tbody>
+                        <tfoot>
+                            <tr colspan="3">
+                                <div class="reset-wrapper-desktop d-none">
+                                    <button id="reset-table-desktop"><i class="fa-solid fa-rotate-left"></i></button>
+                                </div>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <div class="transactions-container-mobile">
+                    <table id="transactions-table-mobile">
+                        <thead>
+                            <tr>
+                                <th>Typ <span id="mobile-table-type-head" style="cursor: pointer"><i class="fa-solid fa-list"></i></i></span></th>
+                                <th>Opis <span id="mobile-table-search-head" style="cursor: pointer"><i class="fa-solid fa-magnifying-glass"></i></th>
+                                <th>Kwota</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                        <tfoot>
+                            <tr colspan="3">
+                                <div class="reset-wrapper d-none">
+                                    <button id="reset-table"><i class="fa-solid fa-rotate-left"></i></button>
+                                </div>
+                            </tr>
+                        </tfoot>
+                        
+                    </table>
+                </div>
+            </div>
+            
+        </section>
+        <!--LoggedIn wiew end-->
+    </main>
+    <footer>
+        <span>JS-login-app - intive patronage 2023 <i class="fa-regular fa-copyright"></i> Paweł Pazderski</span>
+    </footer>
+</body>
+</html>

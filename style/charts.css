@@ -1,0 +1,33 @@
+#charts {
+    width: 90vw;
+    max-width: 1080px;
+    height: 45vh;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.bar-chart-container,
+.pie-chart-container {
+    position: relative;
+    height: 100%;
+    padding: 1rem
+}
+
+.pie-chart-container {
+    padding-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+    .bar-chart-container,
+    .pie-chart-container  {
+        width: 100%!important;
+    }
+}
+
+@media (min-width: 769px) {
+    .bar-chart-container,
+    .pie-chart-container  {
+        width: 50%!important;
+    }
+}

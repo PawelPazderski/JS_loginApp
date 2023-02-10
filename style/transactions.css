@@ -1,0 +1,151 @@
+/*transactions view*/
+.transactions-container-mobile,
+.transactions-container-desktop {
+    width: 90vw;
+    max-width: 1080px;
+    height: 41vh;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    padding: 1rem;
+    color: rgba(0,0,0,.75);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.transactions-container-mobile {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-style: hidden;
+}
+
+thead tr {
+    cursor: default;
+}
+
+th {
+    border: 1px solid rgba(0,0,0,.75);
+    padding: 5px;
+    white-space: nowrap;
+}
+
+td {
+    border: 1px solid rgba(0,0,0,.75);
+    padding: 5px;
+}
+
+td:first-child {
+    text-align: center;
+}
+
+td:last-child {
+    text-align: right;
+    padding-right: 10px;
+}
+
+tr {
+    cursor: pointer;
+}
+
+.info-open {
+    background-color: rgba(250,250,250, .5);
+    height: 3rem;
+    border-top: 2px solid rgba(0,0,0,.75);
+    cursor: default
+}
+
+.info-open td:first-child {
+    font-size: 1.5rem;
+}
+
+.add-info {
+    background-color: white;
+    border-bottom: 2px solid rgba(0,0,0,.75);
+}
+
+.add-info-text {
+    font-size: .9rem;
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    cursor: pointer
+}
+
+/*table desktop*/
+#transactions-table-desktop td {
+    cursor: auto;
+}
+
+#transactions-table-desktop td:nth-child(2) {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#transactions-table-desktop td:nth-last-child(2) {
+    text-align: right;
+    padding-right: 10px;
+}
+
+/*filter transactions*/
+#filter-transactions-form {
+    text-align: left;
+    margin-top: 1rem;
+}
+
+#search-transactions-form {
+    width:80%;
+}
+
+#filter-transactions-form .filter-button {
+    display: flex;
+    justify-content: center;
+}
+
+.modal-alert {
+    background-color: rgba(211,211,211,.95);
+}
+
+input#search {
+    line-height: 2rem;
+    text-align: center;
+    width:80%;
+}
+
+input#search::placeholder {
+    font-size: .8rem;
+}
+
+#reset-table-desktop {
+    padding: 8px 8px;
+    margin-bottom: 5px;
+}
+
+/*media querries*/
+@media (max-width: 768px) {
+    .transactions-container-mobile {
+        font-size: .9rem;
+    }
+    .transactions-container-desktop {
+        display: none;
+    }
+    #reset-table {
+        font-size: .7rem;
+        padding: 5px;
+    }
+    #filter-transactions-form label {
+        font-size: .8rem;
+    }
+}
+
+@media (min-width: 769px) {
+    .transactions-container-mobile {
+        display: none;
+    }
+    td {
+        padding: 4px;
+    }
+}

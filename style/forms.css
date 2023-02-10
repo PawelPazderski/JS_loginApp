@@ -1,0 +1,115 @@
+form label {
+    color: var(--main-gray-color);
+    font-size: .9rem;
+}
+
+.input-wrapper {
+    position: relative;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+input {
+    font-family:"Open Sans", FontAwesome, sans-serif;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--main-gray-color);
+    font-size: 1rem;
+}
+
+input:focus {
+    border: none;
+    border-bottom: 1px solid var(--secondary-bg-color);
+    outline: none;
+    caret-color: var(--secondary-bg-color);
+}
+
+form button {
+    margin-top: 2rem;
+}
+
+form button:hover {
+    background-color: var(--main-gray-color);
+    border: 1px solid var(--secondary-bg-color);
+}
+
+.myAlert {
+    position: absolute;
+    z-index: 5;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    min-height: 225px;
+    background-color: var(--secondary-bg-color);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, .25);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.5rem;
+    top: calc(50vh - 100px);
+    left: 25%;
+    border-radius: 10px;
+}
+
+.myAlert-bg {
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--main-bg-color);
+    opacity: .8;
+}
+
+.register-container,
+.login-container {
+    background-color: rgba(211,211,211,.95);
+    color: var(--main-bg-color);
+    width: 500px;
+    height: fit-content;
+    padding: 1rem;
+    padding-bottom: 1.2rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, .25);
+}
+
+.register-form,
+.login-form {
+    width: 75%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.form-error {
+    color: rgb(224, 3, 3);
+    font-size: .8rem;
+}
+
+.show-password {
+    position: absolute;
+    right: 0;
+    bottom: 1px;
+    opacity: .5;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .myAlert {
+        width: 80vw;
+        left: 10vw;
+        font-size: 1.2rem;
+    }
+    .input-wrapper {
+        flex-direction: column;
+    }
+    input {
+        line-height: 1.5rem;
+    }
+}
