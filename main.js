@@ -28,6 +28,7 @@ document.querySelector(".nav-logo").addEventListener('click', () => location.rel
 
 //starting with local storage check if the user exists / is logged in
 checkLocalStorage()
+//test
 
 //MANAGING REGISTER / LOGIN VIEWS
 function handleRegisterView(e) {
