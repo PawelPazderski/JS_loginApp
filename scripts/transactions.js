@@ -97,12 +97,17 @@ function printData(props) {
                 ${data.transactions[i].description}
                 <div style="font-size:.8rem; display:flex; justify-content:space-between">
                     <div>
-                        <strong translate="yes">${data.transacationTypes[data.transactions[i].type]}</strong>
+                        <strong>${data.transacationTypes[data.transactions[i].type]}</strong>
                     </div>
-                    ${data.transactions[i].type % 2 === 0 ? `<div style="font-size:.8rem;">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <strong translate="yes">${data.transactions[i].localization}</strong>
-                    </div>` : ""}
+                    ${data.transactions[i].type % 2 === 0 
+                        ?
+                        `<div style="font-size:.8rem;">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <strong>${data.transactions[i].localization}</strong>
+                        </div>` 
+                        : 
+                        ""
+                    }
                 </div>
             </td>
             <td>${data.transactions[i].amount.toFixed(2).replace(".", ",")}</td>

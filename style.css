@@ -96,15 +96,6 @@ nav {
     padding-right: 10px;
 }
 
-.nav-container .nav-left-items {
-    justify-self: flex-start;
-    /* display: flex; */
-}
-
-.nav-container .nav-right-items {
-    justify-self: flex-end;
-}
-
 .nav-container .nav-logo {
     height: 100%;
     width: 8vh;

@@ -28,7 +28,7 @@ async function getData() {
     }
 
     dbTransactions = await response.json()
-        .then(dbTransactions=> { 
+        .then(dbTransactions => { 
             const pickNumberOfTransactions = Math.floor(Math.random()*(myDB.length-2) + 2)
             const randomItems = myDB.sort(() => Math.random() - Math.random()).slice(0, pickNumberOfTransactions)
 
